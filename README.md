@@ -25,7 +25,6 @@ source venv/bin/activate
 
 // Deactivate the virtual environment
 deactivate
-
 ```
 
 ## Installation
