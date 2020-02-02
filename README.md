@@ -21,11 +21,10 @@ cd ccb
 virtualenv -p python3 venv 
 
 // Activate the virtual environment
-source venv/bin/Activate
+source venv/bin/activate
 
 // Deactivate the virtual environment
 deactivate
-
 ```
 
 ## Installation
