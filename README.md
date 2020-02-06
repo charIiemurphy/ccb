@@ -33,7 +33,11 @@ TBD
 
 ## Usage
 
-TBD
+To run this app from the command line enter the following:
+
+```
+python3 menu.py
+```
 
 ## Contributers
 
