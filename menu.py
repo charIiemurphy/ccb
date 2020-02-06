@@ -1,8 +1,7 @@
-from contact import Contact
+from contact import Contact, ContactBook
 
-# empty when first initialized, array of Contact objects
-# global scope, can be accessed within all methods
-contacts = []
+
+contacts = ContactBook()
 
 def create_contact():
     print('Let\'s create a contact!')
@@ -20,7 +19,7 @@ def create_contact():
         first_name = input('>> ')
         new_contact = Contact(first_name)
     # append new contact to the contacts array above
-    contacts.append(new_contact)
+    contacts.add_contact(new_contact)
     print('Your contact has been created.')
     # back to main menu when done
     main_menu()
@@ -28,9 +27,7 @@ def create_contact():
 
 def list_contacts():
     print('Here are all of your contacts:')
-    # we should call our list contact method here
-    # ...
-    # back to main menu when done
+    contacts.list_contacts()
     main_menu()
 
 
@@ -58,12 +55,9 @@ def main_menu():
     # this calls the method corresponding to the integer choice
     mapped_options[int(user_input)]()
     
-
-
 def start():
     print('Welcome to your contact book!')
     main_menu();
 
-
-start()
-    
+if __name__ == "__main__":
+    start()
