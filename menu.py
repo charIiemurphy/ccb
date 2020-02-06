@@ -1,19 +1,36 @@
-# empty when first initialized
+from contact import Contact
+
+# empty when first initialized, array of Contact objects
 # global scope, can be accessed within all methods
 contacts = []
 
 def create_contact():
     print('Let\'s create a contact!')
     # call our create contacts logic here
+    print('Is this contact a business? y/n')
+    choice = input('>> ')
+    if choice == 'y':
+        print('Okay. Creating a new business...')
+        print('Enter the business name.')
+        first_name = input('>> ')
+        new_contact = Contact(first_name, True)
+    elif choice == 'n':
+        print('Okay. Creating a new person...')
+        print('Enter a first name.')
+        first_name = input('>> ')
+        new_contact = Contact(first_name)
     # append new contact to the contacts array above
-    # e.g. contacts.append(new_contact)
+    contacts.append(new_contact)
     print('Your contact has been created.')
+    # back to main menu when done
     main_menu()
 
 
 def list_contacts():
     print('Here are all of your contacts:')
     # we should call our list contact method here
+    # ...
+    # back to main menu when done
     main_menu()
 
 
