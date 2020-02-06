@@ -1,3 +1,4 @@
+import os 
 
 class Contact:
     def __init__(self, first_name, business=False):
@@ -20,8 +21,11 @@ class Contact:
 class ContactBook:
     def __init__(self):
         self.book = []
+        self.file = 'contacts-export.csv'
+        if os.path.isfile(self.file):
+            self.book = self.__read()
 
-    def __readContacts(self):
+    def __read(self):
         """Returns all contacts in the contact book as a formatted string"""
 
         # start with headers
@@ -60,16 +64,38 @@ class ContactBook:
 
         return result
 
-    def __writeContacts(self, contacts):
+    def __write(self, contacts):
         """write the input strings 'contacts' to a file"""
-        filepath = 'contacts-export.csv'
-        fptr = open(filepath, 'w')
+        fptr = open(self.file, 'w')
 
-        fptr.write(result)
+        fptr.write(self.__read())
         fptr.close()
     
-    def exportAll(self):
-        """Export all contacts to a file"""
-        __writeContacts(__readContacts())
+    def add_contact(self, new_contact):
+        self.book.append(new_contact)
 
-        
+    def list_contacts(self):
+        ''' 
+        Print contacts to console in alphabetical order based
+        on last name.
+
+        Arguments
+        ---------
+        contacts: list of Contact objects
+            The list of contacts currently stored.
+
+        Returns
+        -------
+        nothing. Prints contacts to console.
+        '''
+        # Sort the list of Contacts alphabetically by last name
+        self.book.sort(key = lambda contact: contact.first_name)
+
+        # Print the contacts to the console
+        print('Listing current contacts:')
+        for contact in self.book:
+            print(contact)
+
+    def export_all(self):
+        """Export all contacts to a file"""
+        self.__write(self.__read())
