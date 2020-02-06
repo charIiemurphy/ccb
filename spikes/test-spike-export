@@ -1,5 +1,0 @@
-#!/bin/sh
-
-./spike-export
-cat contacts-export.csv
-rm contacts-export.csv
