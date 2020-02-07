@@ -25,9 +25,9 @@ def create_contact():
     main_menu()
 
 
-def list_contacts():
+def print_contacts():
     print('Here are all of your contacts:')
-    contacts.list_contacts()
+    contacts.print_contacts()
     main_menu()
 
 
@@ -44,7 +44,7 @@ def main_menu():
     # maps each key to a method
     mapped_options = {
         1: create_contact,
-        2: list_contacts,
+        2: print_contacts,
         0: quit_program
     }
     print('What would you like to do?')
