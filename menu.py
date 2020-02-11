@@ -27,7 +27,7 @@ def create_contact():
 
 def print_contacts():
     print('Here are all of your contacts:')
-    contacts.print_contacts()
+    contacts.list_contacts()
     main_menu()
 
 
