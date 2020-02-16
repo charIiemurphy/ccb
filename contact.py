@@ -100,8 +100,8 @@ class ContactBook:
         """Export all contacts to a file"""
         self.__write(self.__read())
 
-    def search_by_last_name(name):
+    def search_by_last_name(self, name):
         """Find contacts with a particular last name"""
         for contact in self.book:
-            if contact.last_name = name:
+            if contact.last_name == name:
                 print(contact)
