@@ -102,6 +102,12 @@ class ContactBook:
 
     def search_by_last_name(self, name):
         """Find contacts with a particular last name"""
-        for contact in self.book:
+        # isolate to contacts with a stored last name
+        contacts = [x for x in self.book if x.last_name]
+
+        # sort by last name alphabetically
+        contacts.sort(key=lambda x: x.last_name)
+
+        for contact in contacts:
             if contact.last_name == name:
                 print(contact)
