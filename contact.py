@@ -105,9 +105,45 @@ class ContactBook:
         # isolate to contacts with a stored last name
         contacts = [x for x in self.book if x.last_name]
 
+        # special case for empty list
+        num_contacts = len(contacts)
+        if num_contacts == 0:
+            print('No contact in the book has a stored last name')
+            return # not found
+
         # sort by last name alphabetically
         contacts.sort(key=lambda x: x.last_name)
 
-        for contact in contacts:
-            if contact.last_name == name:
-                print(contact)
+        # binary search
+        start = 0
+        end = num_contacts
+        while start <= end:
+            # mid is index of contact to check
+            mid = ((end - start) // 2) + start
+
+            # compare input name to current mid of book
+            if name > contacts[mid].last_name:
+                start = mid + 1
+                continue # restart loop
+            elif name < contacts[mid].last_name:
+                end = mid - 1
+                continue # restart loop
+
+            # last name found - find first instance in book
+            if mid != 0:
+                while (contacts[mid-1].last_name == name):
+                    mid -= 1
+                    if mid == 0:
+                        break
+
+            # print all contacts with found last name
+            while (contacts[mid].last_name == name):
+                print(contacts[mid])
+                mid += 1
+                if mid == num_contacts:
+                    break
+
+            return # found
+
+        print('No contact with the last name ' + name + ' found')
+        return # not found
