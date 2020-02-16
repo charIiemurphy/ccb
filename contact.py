@@ -99,3 +99,9 @@ class ContactBook:
     def export_all(self):
         """Export all contacts to a file"""
         self.__write(self.__read())
+
+    def search_by_last_name(name):
+        """Find contacts with a particular last name"""
+        for contact in self.book:
+            if contact.last_name = name:
+                print(contact)
