@@ -26,7 +26,9 @@ class ContactBook:
             self.book = self.__read()
 
     def __read(self):
-        """Returns all contacts in the contact book as a formatted string"""
+        '''
+        Returns all contacts in the contact book as a formatted string
+        '''
 
         # start with headers
         result = 'first_name,last_name,business,email,phone,notes,instagram,facebook\n'
@@ -65,7 +67,9 @@ class ContactBook:
         return result
 
     def __write(self, contacts):
-        """write the input strings 'contacts' to a file"""
+        '''
+        Writes the input strings 'contacts' to a file
+        '''
         fptr = open(self.file, 'w')
 
         fptr.write(self.__read())
@@ -73,6 +77,12 @@ class ContactBook:
     
     def add_contact(self, new_contact):
         self.book.append(new_contact)
+
+    def get_count(self):
+        '''
+        Returns the count of contacts in the contact book
+        '''
+        return len(self.book)
 
     def list_contacts(self):
         ''' 
@@ -97,11 +107,15 @@ class ContactBook:
             print(contact)
 
     def export_all(self):
-        """Export all contacts to a file"""
+        '''
+        Exports all contacts to a file
+        '''
         self.__write(self.__read())
 
     def search_by_last_name(self, name):
-        """Find contacts with a particular last name"""
+        '''
+        Finds contacts with a particular last name
+        '''
         # isolate to contacts with a stored last name
         contacts = [x for x in self.book if x.last_name]
 

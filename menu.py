@@ -25,6 +25,12 @@ def create_contact():
     main_menu()
 
 
+def display_contact_count():
+    count = contacts.get_count()
+    print('You have ' + str(count) + ' saved contacts.')
+    main_menu()
+
+
 def print_contacts():
     print('Here are all of your contacts:')
     contacts.list_contacts()
@@ -38,13 +44,15 @@ def quit_program():
 def main_menu():
     options = {
         1: 'Create a contact',
-        2: 'List all contacts',
+        2: 'Display contact count',
+        3: 'List all contacts',
         0: 'Quit'
     }
     # maps each key to a method
     mapped_options = {
         1: create_contact,
-        2: print_contacts,
+        2: display_contact_count,
+        3: print_contacts,
         0: quit_program
     }
     print('What would you like to do?')
