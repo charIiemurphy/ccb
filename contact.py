@@ -18,6 +18,18 @@ class Contact:
         else:
             return f'{self.first_name}'
 
+    # Prints all information about a particular contact
+    def print_self(self):
+        print('First Name: ' + self.first_name)
+        if self.last_name: print('Last Name: ' + self.last_name)
+        if self.business: print('Business: ' + str(self.business))
+        if self.email: print('Email: ' + self.email)
+        if self.phone_number: print('Phone Number: ' + self.phone_number)
+        if self.notes: print('Notes: ' + self.notes)
+        if self.social_media['instagram']: print('Instagram: ' + self.social_media['instagram'])
+        if self.social_media['facebook']: print('Facebook ' + self.social_media['facebook'])
+
+
 class ContactBook:
     def __init__(self):
         self.book = []
@@ -147,3 +159,7 @@ class ContactBook:
 
         print('No contact with the last name ' + name + ' found')
         return # not found
+
+    # CAN DELETE returns contact at index number "number"
+    def returnContactInfo(self, number):
+        return self.book[number]
